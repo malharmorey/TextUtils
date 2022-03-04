@@ -1,14 +1,14 @@
 import './App.css';
 import Navbar from './Components/Navbar';
+import TextForm from './Components/TextForm';
 
 function App() {
-  // This App will be kind of  our app's overview file.
   return (
     <>
-      {/* here we pass props via HTMl attributes */}
-      {/* <Navbar title='TextUtils' aboutText='About-TextUtils' /> */}
-      {/* <Navbar /> */}
       <Navbar title='TextUtils' />
+      <div className='container my-3'>
+        <TextForm heading='Modify your Text' />
+      </div>
     </>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Always use Capital INITIAL for user defined component.
 export default function Navbar(props) {
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
@@ -29,7 +28,7 @@ export default function Navbar(props) {
             </li>
             <li className='nav-item'>
               <a className='nav-link' href='/'>
-                {props.aboutText}
+                About
               </a>
             </li>
           </ul>
@@ -52,13 +51,9 @@ export default function Navbar(props) {
 
 //PropTypes: check and warn developer for its innput to the component.
 Navbar.propTypes = {
-  // here use small 'p', else it will not verify the props.
   title: PropTypes.string.isRequired,
-  aboutText: PropTypes.string.isRequired,
-  //.isRequired is use to warn dev that this prop should not be Undefined.
 };
 //DefaultProps: is use to set properties byDefault.
 Navbar.defaultProps = {
   title: 'Your Title here',
-  aboutText: 'About',
 };
