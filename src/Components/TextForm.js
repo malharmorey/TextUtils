@@ -1,36 +1,70 @@
-import React, { useState } from 'react'; // First Import State you want to use.
+import React, { useState } from 'react';
 
-//In order to use react-Bootstrap we need to install its npm package and import it here.
 export default function TextForm(props) {
+  const [text, setText] = useState('');
+
   const handleUpperCaseClick = () => {
-    let newText = text.toUpperCase();
-    setText(newText);
+    // let newText = text.toUpperCase();
+    // setText(newText);
+    setText(text.toUpperCase());
+  };
+  const handleLowerCaseClick = () => {
+    // let newText = text.toLowerCase();
+    // setText(newText);
+    setText(text.toLowerCase());
   };
 
   const handleOnChange = (event) => {
-    // Without this event handler we were unable to write at text area, this is kinda compulsory.
     setText(event.target.value);
   };
 
-  const [text, setText] = useState();
-  //text = 'new text'; // Wrong way to change state.
-  //setText('new text'); // Correct way to change state.
   return (
-    <div>
-      <h2>{props.heading}</h2>
-      <div className='mb-3'>
-        <textarea
-          className='form-control'
-          placeholder='Paste your content here!'
-          value={text}
-          onChange={handleOnChange}
-          id='inputBox'
-          rows='8'
-        ></textarea>
+    <>
+      <div>
+        <h2>{props.heading}</h2>
+        <div className='mb-3'>
+          <textarea
+            className='form-control'
+            placeholder='Paste your content here!'
+            value={text} // Since text is a state var, and by using this here we can now type inside the text area. for more exp watch CWH tut7 @18:00
+            onChange={handleOnChange}
+            id='inputBox'
+            rows='6'
+          ></textarea>
+        </div>
+        <button className='btn btn-primary' onClick={handleUpperCaseClick}>
+          To UpperCase
+        </button>
+        <button className='btn btn-primary mx-4' onClick={handleLowerCaseClick}>
+          To LowerCase
+        </button>
+        <button className='btn btn-primary' onClick={() => setText('')}>
+          Clear Text
+        </button>
+        <button className='btn btn-primary mx-4'>Copy Text</button>
       </div>
-      <button className='btn btn-primary' onClick={handleUpperCaseClick}>
-        To UpperCase
-      </button>
-    </div>
+      <div className='container my-4 p-0'>
+        <h2>Your Text Summary</h2>
+        <p>
+          {
+            text
+              .replace(/\n/g, ' ')
+              .split(' ')
+              .filter((value) => value !== '').length
+          }{' '}
+          <strong>Words and</strong> {text.length} <strong>Characters.</strong>
+        </p>
+        <p>
+          {0.008 *
+            text
+              .replace(/\n/g, ' ')
+              .split(' ')
+              .filter((value) => value !== '').length}{' '}
+          <strong>Minutes Read</strong>
+        </p>
+        <h2>Preview</h2>
+        <p>{text}</p>
+      </div>
+    </>
   );
 }
