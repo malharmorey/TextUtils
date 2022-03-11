@@ -49,11 +49,9 @@ export default function Navbar(props) {
   );
 }
 
-//PropTypes: check and warn developer for its input to the component.
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
 };
-//DefaultProps: is use to set byDefault properties.
 Navbar.defaultProps = {
   title: 'Your Title here',
 };
