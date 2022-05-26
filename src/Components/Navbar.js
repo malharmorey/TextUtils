@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../index.css';
 
 export default function Navbar(props) {
   return (
@@ -32,17 +33,15 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-          <form className='d-flex'>
-            <input
-              className='form-control me-2'
-              type='search'
-              placeholder='Search'
-              aria-label='Search'
-            />
-            <button className='btn btn-outline-primary' type='submit'>
-              Search
-            </button>
-          </form>
+          <div className='darkMode'>
+            <p className='d-print-inline-block'>Dark Mode</p>
+            <div class='switch'>
+              <label class='theme-switch' for='checkbox'>
+                <input type='checkbox' id='checkbox' />
+                <div class='slider round'></div>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
