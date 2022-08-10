@@ -4,9 +4,11 @@ import '../index.css';
 
 export default function Navbar(props) {
 	return (
-		<nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+		<nav
+			className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+		>
 			<div className='container-fluid'>
-				<a className='navbar-brand' href='/'>
+				<a className='navbar-brand' href='#'>
 					{props.title}
 				</a>
 				<button
@@ -29,22 +31,32 @@ export default function Navbar(props) {
 							<a
 								className='nav-link active'
 								aria-current='page'
-								href='/'
+								href='#'
 							>
 								Home
 							</a>
 						</li>
 						<li className='nav-item'>
-							<a className='nav-link' href='/'>
+							<a className='nav-link' href='#'>
 								About
 							</a>
 						</li>
 					</ul>
 					<div className='darkMode'>
-						<p className='d-print-inline-block'>Dark Mode</p>
+						<p
+							className={`d-print-inline-block text-${
+								props.mode === 'light' ? 'dark' : 'light'
+							}`}
+						>
+							Dark Mode
+						</p>
 						<div className='switch'>
 							<label className='theme-switch' htmlFor='checkbox'>
-								<input type='checkbox' id='checkbox' />
+								<input
+									type='checkbox'
+									id='checkbox'
+									onClick={props.toggleMode}
+								/>
 								<div className='slider round'></div>
 							</label>
 						</div>
@@ -55,9 +67,7 @@ export default function Navbar(props) {
 	);
 }
 
-// Navbar.propTypes = {
-//   title: PropTypes.string.isRequired,
-// };
+
 Navbar.propTypes = {
 	title: PropTypes.string,
 };

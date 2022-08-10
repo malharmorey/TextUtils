@@ -49,7 +49,11 @@ export default function TextForm(props) {
 
 	return (
 		<>
-			<div>
+			<div
+				style={{
+					color: props.mode === 'light' ? 'black' : 'white',
+				}}
+			>
 				<h2>{props.heading}</h2>
 				<div className='mb-3'>
 					<textarea
@@ -59,10 +63,15 @@ export default function TextForm(props) {
 						onChange={handleOnChange}
 						id='inputBox'
 						rows='6'
+						style={{
+							backgroundColor:
+								props.mode === 'light' ? 'white' : '#15171a',
+							color: props.mode === 'light' ? 'black' : 'white',
+						}}
 					></textarea>
 				</div>
 				<button
-					className='btn btn-primary'
+					className='btn btn-primary ms-2'
 					onClick={handleUpperCaseClick}
 				>
 					UPPER CASE
@@ -97,11 +106,19 @@ export default function TextForm(props) {
 				>
 					Clear text
 				</button>
-				<button className='btn btn-primary' onClick={handleCopyText}>
+				<button
+					className='btn btn-primary me-4'
+					onClick={handleCopyText}
+				>
 					Copy text
 				</button>
 			</div>
-			<div className='container my-4 p-0'>
+			<div
+				className='container my-4 p-0'
+				style={{
+					color: props.mode === 'light' ? 'black' : 'white',
+				}}
+			>
 				<h2>Your Text Summary</h2>
 				<p>
 					{
@@ -121,7 +138,7 @@ export default function TextForm(props) {
 							.filter((value) => value !== '').length}{' '}
 					<strong>Minutes Read</strong>
 				</p>
-				<h2>Preview</h2>
+				<h2>Preview:</h2>
 				<p>{text}</p>
 			</div>
 		</>
