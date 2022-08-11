@@ -21,7 +21,7 @@ function App() {
 
 	return (
 		<>
-			<Navbar title='TextUtils' mode={mode} toggleMode={toggleMode} />
+			<Navbar title='TextUtils' toggleMode={toggleMode} />
 			<div className='wholePage pt-3'>
 				<div id='textContainer' className='container mx-auto'>
 					<TextForm heading='Modify your Text' mode={mode} />

@@ -4,9 +4,7 @@ import '../index.css';
 
 export default function Navbar(props) {
 	return (
-		<nav
-			className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
-		>
+		<nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
 			<div className='container-fluid'>
 				<a className='navbar-brand' href='#'>
 					{props.title}
@@ -43,11 +41,7 @@ export default function Navbar(props) {
 						</li>
 					</ul>
 					<div className='darkMode'>
-						<p
-							className={`d-print-inline-block text-${
-								props.mode === 'light' ? 'dark' : 'light'
-							}`}
-						>
+						<p className='d-print-inline-block text-light'>
 							Dark Mode
 						</p>
 						<div className='switch'>
