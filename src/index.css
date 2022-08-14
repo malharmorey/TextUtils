@@ -11,6 +11,9 @@
   height: 100vh;
   width: 100vw;
 }
+.navbar-brand:hover{
+  color: #f7612a !important;
+}
 input:checked ~ .container {
   color: rgb(252, 255, 235);
   background-color: #3b3b3b;
