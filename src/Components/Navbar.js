@@ -20,17 +20,10 @@ export default function Navbar(props) {
 				>
 					<span className='navbar-toggler-icon'></span>
 				</button>
-				<div
-					className='collapse navbar-collapse'
-					id='navbarSupportedContent'
-				>
+				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
 						<li className='nav-item'>
-							<a
-								className='nav-link active'
-								aria-current='page'
-								href='#'
-							>
+							<a className='nav-link active' aria-current='page' href='#'>
 								Home
 							</a>
 						</li>
@@ -42,7 +35,7 @@ export default function Navbar(props) {
 					</ul>
 					<div className='darkMode'>
 						<p className='d-print-inline-block text-light'>
-							Dark Mode
+							{props.mode === 'light' ? 'Dark' : 'Light'} Mode
 						</p>
 						<div className='switch'>
 							<label className='theme-switch' htmlFor='checkbox'>

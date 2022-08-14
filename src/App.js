@@ -16,7 +16,7 @@ function App() {
 		});
 		setInterval(() => {
 			setAlert(null);
-		}, 2800);
+		}, 3000);
 	};
 
 	//Dark-Mode Toggle
@@ -35,7 +35,7 @@ function App() {
 
 	return (
 		<>
-			<Navbar title='TextUtils' toggleMode={toggleMode} />
+			<Navbar title='TextUtils' mode={mode} toggleMode={toggleMode} />
 			<Alert alert={alert} />
 			<div className='wholePage pt-3'>
 				<div id='textContainer' className='container mx-auto'>

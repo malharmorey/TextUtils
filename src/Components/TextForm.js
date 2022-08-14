@@ -29,22 +29,31 @@ export default function TextForm(props) {
 		});
 
 		saveAs(blob, 'YourText.txt');
-
 		props.createAlert('Downloading has started!', 'success');
 	};
 
 	const handleRemoveWhiteSpace = () => {
 		setText(text.replace(/\s+/g, ' ').trim());
 	};
-	function handleClearText() {
-		window.confirm('Are you sure you want to clear text?')
-			? setText('')
+	const handleClearText = () => {
+		//NOTE Realized that arrow functions occasionally needed return so, I Put Return keyword.
+		//LINK https://techstrology.com/expected-an-assignment-or-function-call-and-instead-saw-an-expression-no-unused-expressions-in-reactjs/
+
+		return window.confirm('Are you sure you want to clear text?')
+			? (setText(''), props.createAlert('Content Cleared!', 'danger'))
 			: setText(text);
-	}
+		//NOTE Above ternary exp was giving ERROR in [eslint]: Expected an assignment or function call and instead saw an expression no-unused-expressions.
+
+		//NOTE Below code was the instant solution for above err.
+		// if (window.confirm('Are you sure you want to clear text?') === true) {
+		// 	setText('');
+		// 	props.createAlert('Content Cleared!', 'danger');
+		// } else {
+		// 	setText(text);
+		// }
+	};
 	const handleCopyText = () => {
 		navigator.clipboard.writeText(text);
-		// alert('Content Copied to the Clipboard!');
-
 		props.createAlert('Content Copied to the Clipboard!', 'success');
 	};
 
