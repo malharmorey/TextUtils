@@ -29,18 +29,23 @@ export default function TextForm(props) {
 		});
 
 		saveAs(blob, 'YourText.txt');
+
+		props.createAlert('Downloading has started!', 'success');
 	};
 
 	const handleRemoveWhiteSpace = () => {
 		setText(text.replace(/\s+/g, ' ').trim());
 	};
-	const handleClearText = () => {
-		setText('');
-		alert('Content Cleared!');
-	};
+	function handleClearText() {
+		window.confirm('Are you sure you want to clear text?')
+			? setText('')
+			: setText(text);
+	}
 	const handleCopyText = () => {
 		navigator.clipboard.writeText(text);
-		alert('Content Copied to the Clipboard!');
+		// alert('Content Copied to the Clipboard!');
+
+		props.createAlert('Content Copied to the Clipboard!', 'success');
 	};
 
 	const handleOnChange = (event) => {
@@ -64,28 +69,18 @@ export default function TextForm(props) {
 						id='inputBox'
 						rows='6'
 						style={{
-							backgroundColor:
-								props.mode === 'light' ? 'white' : '#15171a',
+							backgroundColor: props.mode === 'light' ? 'white' : '#15171a',
 							color: props.mode === 'light' ? 'black' : 'white',
 						}}
 					></textarea>
 				</div>
-				<button
-					className='btn btn-primary ms-2'
-					onClick={handleUpperCaseClick}
-				>
+				<button className='btn btn-primary ms-2' onClick={handleUpperCaseClick}>
 					UPPER CASE
 				</button>
-				<button
-					className='btn btn-primary mx-4'
-					onClick={handleLowerCaseClick}
-				>
+				<button className='btn btn-primary mx-4' onClick={handleLowerCaseClick}>
 					lower case
 				</button>
-				<button
-					className='btn btn-primary'
-					onClick={handleTitleCaseClick}
-				>
+				<button className='btn btn-primary' onClick={handleTitleCaseClick}>
 					Title Case
 				</button>
 				<button
@@ -94,22 +89,13 @@ export default function TextForm(props) {
 				>
 					Remove white space
 				</button>
-				<button
-					className='btn btn-primary '
-					onClick={handleDownloadClick}
-				>
+				<button className='btn btn-primary ' onClick={handleDownloadClick}>
 					Download text
 				</button>
-				<button
-					className='btn btn-primary mx-4'
-					onClick={handleClearText}
-				>
+				<button className='btn btn-primary mx-4' onClick={handleClearText}>
 					Clear text
 				</button>
-				<button
-					className='btn btn-primary me-4'
-					onClick={handleCopyText}
-				>
+				<button className='btn btn-primary me-4' onClick={handleCopyText}>
 					Copy text
 				</button>
 			</div>
@@ -127,8 +113,7 @@ export default function TextForm(props) {
 							.split(' ')
 							.filter((value) => value !== '').length
 					}{' '}
-					<strong>Words and</strong> {text.length}{' '}
-					<strong>Characters.</strong>
+					<strong>Words and</strong> {text.length} <strong>Characters.</strong>
 				</p>
 				<p>
 					{0.008 *
