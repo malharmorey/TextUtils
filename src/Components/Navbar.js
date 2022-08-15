@@ -7,7 +7,9 @@ export default function Navbar(props) {
 	return (
 		<nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
 			<div className='container-fluid'>
-				<div className='navbar-brand'>{props.title}</div>
+				<Link className='navbar-brand' to='/'>
+					{props.title}
+				</Link>
 				<button
 					className='navbar-toggler'
 					type='button'
@@ -27,12 +29,12 @@ export default function Navbar(props) {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link' to='/About'>
+							<Link className='nav-link active' to='/About'>
 								About
 							</Link>
 						</li>
 					</ul>
-					<div className='darkMode'>
+					<div className='darkMode mx-3'>
 						<p className='d-print-inline-block text-light'>
 							{props.mode === 'light' ? 'Dark' : 'Light'} Mode
 						</p>

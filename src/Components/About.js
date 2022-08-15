@@ -9,7 +9,7 @@ export default function About(props) {
 					color: props.mode === 'light' ? 'black' : 'white',
 				}}
 			>
-				<p className='h2 ' style={{ textDecoration: `underline` }}>
+				<p className='h1 ' style={{ textDecoration: `underline` }}>
 					About Us
 				</p>
 				<p>

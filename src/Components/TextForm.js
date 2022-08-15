@@ -45,8 +45,14 @@ export default function TextForm(props) {
 	};
 
 	const handleCopyText = () => {
-		navigator.clipboard.writeText(text);
-		props.createAlert('Content Copied to the Clipboard!', 'success');
+		navigator.clipboard
+			.writeText(text)
+			.then(() => {
+				props.createAlert('Content Copied to the Clipboard!', 'success');
+			})
+			.catch(() => {
+				props.createAlert('Oops! error occured', 'danger');
+			});
 	};
 
 	const handleOnChange = (event) => {
@@ -60,7 +66,7 @@ export default function TextForm(props) {
 					color: props.mode === 'light' ? 'black' : 'white',
 				}}
 			>
-				<h2>{props.heading}</h2>
+				<h1>{props.heading}</h1>
 				<div className='mb-3'>
 					<textarea
 						className='form-control'
@@ -75,28 +81,53 @@ export default function TextForm(props) {
 						}}
 					></textarea>
 				</div>
-				<button className='btn btn-primary ms-2' onClick={handleUpperCaseClick}>
+				<button
+					className='btn btn-primary me-4 my-1'
+					onClick={handleUpperCaseClick}
+					disabled={text.length === 0}
+				>
 					UPPER CASE
 				</button>
-				<button className='btn btn-primary mx-4' onClick={handleLowerCaseClick}>
+				<button
+					className='btn btn-primary me-4 my-1'
+					onClick={handleLowerCaseClick}
+					disabled={text.length === 0}
+				>
 					lower case
 				</button>
-				<button className='btn btn-primary' onClick={handleTitleCaseClick}>
+				<button
+					className='btn btn-primary me-4'
+					onClick={handleTitleCaseClick}
+					disabled={text.length === 0}
+				>
 					Title Case
 				</button>
 				<button
-					className='btn btn-primary mx-4'
+					className='btn btn-primary me-4 my-1'
 					onClick={handleRemoveWhiteSpace}
+					disabled={text.length === 0}
 				>
 					Remove white space
 				</button>
-				<button className='btn btn-primary ' onClick={handleDownloadClick}>
+				<button
+					className='btn btn-primary me-4'
+					onClick={handleDownloadClick}
+					disabled={text.length === 0}
+				>
 					Download text
 				</button>
-				<button className='btn btn-primary mx-4' onClick={handleClearText}>
+				<button
+					className='btn btn-primary me-4 my-1'
+					onClick={handleClearText}
+					disabled={text.length === 0}
+				>
 					Clear text
 				</button>
-				<button className='btn btn-primary me-4' onClick={handleCopyText}>
+				<button
+					className='btn btn-primary me-4 my-1'
+					onClick={handleCopyText}
+					disabled={text.length === 0}
+				>
 					Copy text
 				</button>
 			</div>
