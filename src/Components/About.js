@@ -4,7 +4,7 @@ export default function About(props) {
 	return (
 		<>
 			<div
-				className='container mx-auto'
+				className='container mx-auto pt-4'
 				style={{
 					color: props.mode === 'light' ? 'black' : 'white',
 				}}

@@ -40,24 +40,24 @@ function App() {
 			<Router>
 				<Navbar title='TextUtils' mode={mode} toggleMode={toggleMode} />
 				<Alert alert={alert} />
-				<div className='wholePage pt-3'>
-					<Routes>
-						<Route exact path='/about' element={<About mode={mode} />}></Route>
-						<Route
-							exact
-							path='/'
-							element={
-								<div id='textContainer' className='container mx-auto'>
-									<TextForm
-										heading='Modify your Text'
-										mode={mode}
-										createAlert={createAlert}
-									/>
-								</div>
-							}
-						></Route>
-					</Routes>
-				</div>
+				{/* <div className='wholePage pt-3' > */}
+				<Routes>
+					<Route exact path='/about' element={<About mode={mode} />}></Route>
+					<Route
+						exact
+						path='/'
+						element={
+							<div id='textContainer' className='container mx-auto pt-4'>
+								<TextForm
+									heading='Modify your Text'
+									mode={mode}
+									createAlert={createAlert}
+								/>
+							</div>
+						}
+					></Route>
+				</Routes>
+				{/* </div> */}
 			</Router>
 		</>
 	);
