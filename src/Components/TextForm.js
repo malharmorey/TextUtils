@@ -60,7 +60,7 @@ export default function TextForm(props) {
 	};
 
 	return (
-		<>
+		<div className='textContainer'>
 			<div
 				style={{
 					color: props.mode === 'light' ? 'black' : 'white',
@@ -158,6 +158,6 @@ export default function TextForm(props) {
 				<h2>Preview:</h2>
 				<p>{text}</p>
 			</div>
-		</>
+		</div>
 	);
 }

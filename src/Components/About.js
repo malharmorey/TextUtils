@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function About(props) {
 	return (
-		<>
+		<div className='textContainer'>
 			<div
 				className='container mx-auto pt-4'
 				style={{
@@ -26,6 +26,6 @@ export default function About(props) {
 					This Web Application is coded 👨🏻‍💻 with ❤️ by Malhar.
 				</p>
 			</div>
-		</>
+		</div>
 	);
 }
