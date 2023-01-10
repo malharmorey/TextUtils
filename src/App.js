@@ -16,7 +16,8 @@ function App() {
 			message: message,
 			type: type,
 		});
-		setInterval(() => {
+		// NOTE: setInterval executing very fast after executing once, Now setTimeout is working fine
+		setTimeout(() => {
 			setAlert(null);
 		}, 3000);
 	};
